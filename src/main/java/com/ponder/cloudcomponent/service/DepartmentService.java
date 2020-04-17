@@ -1,6 +1,6 @@
 package com.ponder.cloudcomponent.service;
 
-import com.ponder.cloudcomponent.model.po.Departments;
+import com.ponder.cloudcomponent.model.po.Department;
 
 import java.util.List;
 
@@ -11,6 +11,7 @@ import java.util.List;
  */
 public interface DepartmentService {
 
-    List<Departments> list();
+    List<Department> list();
 
+    Department detail(String deptNo);
 }
