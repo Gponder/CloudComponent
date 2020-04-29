@@ -5,8 +5,8 @@ package com.ponder.technology.proxy;
  * @Email gponder.g@gmail.com
  * @create 2020/4/28 16:12
  */
-public interface AOPInterfacePara {
+public interface AOPInterfaceParam {
 
-    void doing(String param);
+    String doing(String param);
 
 }
