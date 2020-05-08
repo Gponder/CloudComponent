@@ -9,4 +9,34 @@
     <select id="getByEmpNo" resultType="com.ponder.cloudcomponent.model.po.Employee">
         select * from employees where emp_no = #{empNo}
     </select>
+
+    <!-- 动态语句:
+        where:自动添加where关键字 自动替换第一个 and or
+        set:用于更新自动添加set 去除,
+        trim:自动添加前缀后缀 prefix suffix 替换掉prefixOverrides suffixOverrides
+        if:条件判断
+        choose:choose内条件执行一个
+        foreach:参数list、array可以添加前缀分割等
+        -->
+    <select id="test" resultType="com.ponder.cloudcomponent.model.po.Employee">
+        select * from employees
+        <trim prefix="where" prefixOverrides="and | or">
+
+        </trim>
+        <if test="emp_no != null">
+            emp_no = #{emp_no}
+        </if>
+        <choose>
+            <when test="gender = '男'">
+                and gender = 'M'
+            </when>
+            <when test="gender = '女'">
+                and gender = 'F'
+            </when>
+            <otherwise>
+                and gender = 'O'
+            </otherwise>
+        </choose>
+
+    </select>
 </mapper>
