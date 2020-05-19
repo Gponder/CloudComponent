@@ -3,7 +3,7 @@
 <mapper namespace="com.ponder.cloudcomponent.dao.EmployeeMapper">
 
     <select id="list" resultType="com.ponder.cloudcomponent.model.po.Employee">
-        select * from employees
+        select * from employees limit 100
     </select>
 
     <select id="getByEmpNo" resultType="com.ponder.cloudcomponent.model.po.Employee">
