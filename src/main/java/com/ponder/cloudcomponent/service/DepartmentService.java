@@ -14,4 +14,6 @@ public interface DepartmentService {
     List<Department> list();
 
     Department detail(String deptNo);
+
+    void save(Department department);
 }

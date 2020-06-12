@@ -11,4 +11,6 @@ public interface DepartmentMapper {
     List<Department> list();
 
     Department detail(String deptNo);
+
+    void save(Department department);
 }

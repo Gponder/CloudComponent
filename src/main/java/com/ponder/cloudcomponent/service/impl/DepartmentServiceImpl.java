@@ -5,6 +5,9 @@ import com.ponder.cloudcomponent.model.po.Department;
 import com.ponder.cloudcomponent.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -40,4 +43,16 @@ public class DepartmentServiceImpl implements DepartmentService {
     public Department detail(String deptNo){
         return departmentMapper.detail(deptNo);
     }
+
+    /**
+     * 非事务方法调用内部带事务方法会造成事务失效 事务实现基于aop 依赖代理类开启事务，
+     * 内部调用时不经过代理类，需要在调用方法上开启事务或者通过代理类调用不同对象带事务方法即可生效
+     * @param department
+     */
+    @Transactional(propagation = Propagation.REQUIRED,isolation = Isolation.REPEATABLE_READ)
+    @Override
+    public void save(Department department) {
+        departmentMapper.save(department);
+    }
+
 }

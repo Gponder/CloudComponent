@@ -14,4 +14,8 @@
     <select id="detail" resultMap="detail">
         select * from departments where dept_no = #{deptNo}
     </select>
+
+    <insert id="save" parameterType="com.ponder.cloudcomponent.model.po.Department">
+        insert into departments (dept_no,dept_name) values (#{deptNo},#{deptName})
+    </insert>
 </mapper>
