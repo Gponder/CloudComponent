@@ -34,7 +34,7 @@
             <!-- 是否允许子包 -->
             <property name="enableSubPackages" value="false" />
             <!-- 是否对modal添加构造函数 -->
-            <property name="constructorBased" value="true"/>
+            <property name="constructorBased" value="false"/>
             <!-- 是否清理从数据库中查询出的字符串左右两边的空白字符 -->
             <property name="trimStrings" value="true" />
             <!-- 建立modal对象是否不可改变 即生成的modal对象不会有setter方法，只有构造方法 -->
@@ -50,6 +50,15 @@
             <!-- 针对 oracle 数据库的一个配置，是否把 schema 作为字包名 -->
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
+        <!--生成service,serviceImpl-->
+        <!--<javaServiceGenerator targetPackage="com.ponder.codegenerator.service" targetProject="src/main/java"
+                              implementationPackage="com.ponder.codegenerator.service.impl">
+            <property name="superClass" value="com.ponder.codegenerator.base.BaseService"/>
+        </javaServiceGenerator>
+        &lt;!&ndash;生成controller&ndash;&gt;
+        <javaControllerGenerator targetPackage="com.ponder.codegenerator.controller" targetProject="src/main/java">
+            <property name="superClass" value="com.ponder.codegenerator.base.BaseController"></property>
+        </javaControllerGenerator>-->
         <!-- tableName是数据库中的表名，domainObjectName是生成的JAVA模型名，后面的参数不用改，要生成更多的表就在下面继续加table标签 -->
         <!-- schema="DB2ADMIN" 数据库名 -->
         <table tableName="user" domainObjectName="User"
