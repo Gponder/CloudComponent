@@ -1,6 +1,8 @@
 package com.ponder.datajpa.repository;
 
 import com.ponder.datajpa.model.Teacher;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -19,4 +21,7 @@ public interface TeacherRepository extends JpaRepository<Teacher,Integer> {
     Integer updateTNameByTID(Integer tId,String tName);
 
     Teacher findBytName(String tName);
+
+    @Query("select t from Teacher t where t.tGender = ?1")
+    Page<Teacher> findBytGender(String gender, Pageable pageable);
 }
