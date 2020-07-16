@@ -4,6 +4,7 @@ import com.ponder.datajpa.model.Teacher;
 import com.ponder.datajpa.repository.TeacherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -34,5 +35,10 @@ public class TeacherController {
     @GetMapping("updateName")
     public Integer updateName(String name,Integer id){
         return teacherRepository.updateTNameByTID(id,name);
+    }
+
+    @GetMapping("/{name}")
+    public Teacher findByName(@PathVariable String name){
+        return teacherRepository.findBytName(name);
     }
 }

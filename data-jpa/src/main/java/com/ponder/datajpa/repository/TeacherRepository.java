@@ -17,4 +17,6 @@ public interface TeacherRepository extends JpaRepository<Teacher,Integer> {
     @Modifying
     @Query("update Teacher set tName = ?2 where tId = ?1")
     Integer updateTNameByTID(Integer tId,String tName);
+
+    Teacher findBytName(String tName);
 }
