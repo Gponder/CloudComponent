@@ -25,21 +25,23 @@ public class PersonController {
     @Autowired
     PersonRepository personRepository;
 
-    @GetMapping("add")
+    @GetMapping("post")
     public String addPerson(Person person){
         personRepository.insert(person);
         return "success";
     }
 
-    @GetMapping("/{id}")
-    public List<Person> getPerson(@PathVariable String id){
-        return personRepository.findAll();
+    @GetMapping("list")
+    public List<Person> getPerson(){
+        List<Person> personList = personRepository.findAll();
+        return personList;
     }
 
     /**
      * 原生操作
      * @return
      */
+    @GetMapping("test")
     private List<Document> test(){
         MongoClient mongoClient = MongoClients.create( );
         MongoDatabase test = mongoClient.getDatabase("test");

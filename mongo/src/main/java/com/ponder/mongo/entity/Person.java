@@ -8,7 +8,7 @@ import lombok.Data;
  * @create 2020/7/29 17:28
  */
 @Data
-public class Person {
+public class Person extends BaseEntityId{
     private String name;
     private String gender;
     private Integer age;
