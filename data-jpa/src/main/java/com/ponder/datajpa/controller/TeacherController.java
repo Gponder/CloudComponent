@@ -21,7 +21,7 @@ import java.util.List;
 @RequestMapping("Teacher")
 public class TeacherController {
 
-    @Autowired
+/*    @Autowired
     private TeacherRepository teacherRepository;
 
     @GetMapping("list")
@@ -48,4 +48,5 @@ public class TeacherController {
     public Page<Teacher> page(String gender){
         return teacherRepository.findBytGender(gender,PageRequest.of(0,3));
     }
+    */
 }
