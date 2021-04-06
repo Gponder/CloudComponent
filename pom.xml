@@ -15,8 +15,16 @@
     <description>Demo project for Spring Boot</description>
 
     <modules>
-        <module>session-data</module>
+        <module>activities</module>
+        <module>auth</module>
+        <module>balance</module>
+        <module>code-generator</module>
+        <module>config</module>
+        <module>data-jpa</module>
         <module>eu-server</module>
+        <module>mongo</module>
+        <module>session-data</module>
+        <module>technology</module>
     </modules>
 
     <properties>
